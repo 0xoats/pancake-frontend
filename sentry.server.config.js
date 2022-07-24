@@ -9,7 +9,7 @@ const ENV = process.env.VERCEL_ENV || process.env.NODE_ENV
 
 Sentry.init({
   dsn: SENTRY_DSN,
-  environment: ENV === 'production' ? 'production' : 'development',
+  environment: 'development',
   // Adjust this value in production, or use tracesSampler for greater control
   tracesSampleRate: 0,
   // ...
