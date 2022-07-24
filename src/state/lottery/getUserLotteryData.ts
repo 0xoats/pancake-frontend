@@ -16,6 +16,8 @@ const applyNodeDataToUserGraphResponse = (
   lotteryNodeData: LotteryResponse[],
 ): UserRound[] => {
   //   If no graph rounds response - return node data
+  console.log(userNodeData)
+  console.log(userGraphData)
   if (userGraphData.length === 0) {
     return lotteryNodeData.map((nodeRound) => {
       const ticketDataForRound = userNodeData.find((roundTickets) => roundTickets.roundId === nodeRound.lotteryId)

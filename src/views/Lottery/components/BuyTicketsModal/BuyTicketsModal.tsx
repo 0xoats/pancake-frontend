@@ -283,7 +283,7 @@ const BuyTicketsModal: React.FC<BuyTicketsModalProps> = ({ onDismiss }) => {
 
   const disableBuying =
     !isApproved ||
-    isConfirmed ||
+    isConfirmed || 
     userNotEnoughCake ||
     !ticketsToBuy ||
     new BigNumber(ticketsToBuy).lte(0) ||

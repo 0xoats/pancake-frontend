@@ -120,6 +120,7 @@ export const fetchCurrentLotteryIdAndMaxBuy = async () => {
       maxNumberTicketsPerBuyOrClaim: maxNumberTicketsPerBuyOrClaim ? maxNumberTicketsPerBuyOrClaim.toString() : null,
     }
   } catch (error) {
+    console.log(error)
     return {
       currentLotteryId: null,
       maxNumberTicketsPerBuyOrClaim: null,
