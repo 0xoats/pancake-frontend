@@ -25,7 +25,7 @@ const processViewLotterySuccessResponse = (response, lotteryId: string): Lottery
     cakePerBracket,
     countWinnersPerBracket,
     rewardsBreakdown,
-    firstTicketIdNextLottery
+    firstTicketIdNextLottery,
   } = response
 
   const statusKey = Object.keys(LotteryStatus)[status]
@@ -47,7 +47,7 @@ const processViewLotterySuccessResponse = (response, lotteryId: string): Lottery
     firstTicketId: firstTicketId?.toString(),
     lastTicketId: lastTicketId?.toString(),
     amountCollectedInCake: ethersToSerializedBigNumber(amountCollectedInCake),
-    firstTicketIdNextLottery: firstTicketIdNextLottery,
+    firstTicketIdNextLottery: firstTicketIdNextLottery?.toString(),
     finalNumber,
     cakePerBracket: serializedCakePerBracket,
     countWinnersPerBracket: serializedCountWinnersPerBracket,

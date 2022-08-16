@@ -8,7 +8,6 @@ const EMPTY_ARRAY = []
 
 export function useFastRefreshEffect(effect: BlockEffectCallback, deps?: DependencyList) {
   const { data = 0 } = useSWR([FAST_INTERVAL, 'blockNumber'])
-
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(effect.bind(null, data), [data, ...(deps || EMPTY_ARRAY)])
 }

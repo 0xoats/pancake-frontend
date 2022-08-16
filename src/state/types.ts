@@ -583,6 +583,7 @@ interface LotteryRoundGenerics {
   endTime: string
   treasuryFee: string
   firstTicketId: string
+  firstTicketIdNextLottery: string
   lastTicketId: string
   finalNumber: number
 }
@@ -599,7 +600,6 @@ export interface LotteryRound extends LotteryRoundGenerics {
 
 export interface LotteryResponse extends LotteryRoundGenerics {
   priceTicketInCake: SerializedBigNumber
-  firstTicketIdNextLottery: SerializedBigNumber
   discountDivisor: SerializedBigNumber
   amountCollectedInCake: SerializedBigNumber
   cakePerBracket: SerializedBigNumber[]
