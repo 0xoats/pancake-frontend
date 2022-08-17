@@ -255,6 +255,32 @@
   },
   {
     "inputs": [],
+    "name": "ARGONAUTS",
+    "outputs": [
+      {
+        "internalType": "contract IERC721",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "DISCOUNT_DENOMINATOR",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "MAX_LENGTH_LOTTERY",
     "outputs": [
       {
@@ -340,7 +366,7 @@
     "inputs": [
       {
         "internalType": "uint256",
-        "name": "_discountDivisor",
+        "name": "_amountArgonauts",
         "type": "uint256"
       },
       {
@@ -371,6 +397,11 @@
         "internalType": "address",
         "name": "_randomGeneratorAddress",
         "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_fee",
+        "type": "uint256"
       }
     ],
     "name": "changeRandomGenerator",
@@ -407,11 +438,16 @@
         "internalType": "uint256",
         "name": "_lotteryId",
         "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_fee",
+        "type": "uint256"
       }
     ],
     "name": "closeLottery",
     "outputs": [],
-    "stateMutability": "nonpayable",
+    "stateMutability": "payable",
     "type": "function"
   },
   {
@@ -504,7 +540,33 @@
   },
   {
     "inputs": [],
+    "name": "maxNumberTicketsPerUser",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "maxPriceTicketInCake",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "maxTickets",
     "outputs": [
       {
         "internalType": "uint256",
@@ -672,11 +734,6 @@
         "type": "uint256"
       },
       {
-        "internalType": "uint256",
-        "name": "_discountDivisor",
-        "type": "uint256"
-      },
-      {
         "internalType": "uint256[6]",
         "name": "_rewardsBreakdown",
         "type": "uint256[6]"
@@ -685,11 +742,40 @@
         "internalType": "uint256",
         "name": "_treasuryFee",
         "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_maxTickets",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_maxNumberTicketsPerUser",
+        "type": "uint256"
       }
     ],
     "name": "startLottery",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_lotteryId",
+        "type": "uint256"
+      }
+    ],
+    "name": "ticketsRemaining",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -744,7 +830,7 @@
       {
         "components": [
           {
-            "internalType": "enum PancakeSwapLottery.Status",
+            "internalType": "enum ArgoLottery.Status",
             "name": "status",
             "type": "uint8"
           },
@@ -761,11 +847,6 @@
           {
             "internalType": "uint256",
             "name": "priceTicketInCake",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "discountDivisor",
             "type": "uint256"
           },
           {
@@ -809,7 +890,7 @@
             "type": "uint32"
           }
         ],
-        "internalType": "struct PancakeSwapLottery.Lottery",
+        "internalType": "struct ArgoLottery.Lottery",
         "name": "",
         "type": "tuple"
       }
@@ -918,5 +999,9 @@
     ],
     "stateMutability": "view",
     "type": "function"
+  },
+  {
+    "stateMutability": "payable",
+    "type": "receive"
   }
 ]
