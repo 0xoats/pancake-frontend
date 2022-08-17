@@ -121,10 +121,12 @@ const BuyTicketsModal: React.FC<BuyTicketsModalProps> = ({ onDismiss }) => {
 
   const getTicketCostAfterDiscount = useCallback(
     (numberTickets: BigNumber) => {
-      const totalAfterDiscount = priceTicketInCake
-        .times(numberTickets)
-        .times(discountDivisor.plus(1).minus(numberTickets))
-        .div(discountDivisor)
+      const totalAfterDiscount = discountDivisor.gt(0)
+        ? priceTicketInCake
+            .times(numberTickets)
+            .times(discountDivisor.plus(1).minus(numberTickets))
+            .div(discountDivisor)
+        : priceTicketInCake.times(numberTickets)
       return totalAfterDiscount
     },
     [discountDivisor, priceTicketInCake],
@@ -283,7 +285,7 @@ const BuyTicketsModal: React.FC<BuyTicketsModalProps> = ({ onDismiss }) => {
 
   const disableBuying =
     !isApproved ||
-    isConfirmed || 
+    isConfirmed ||
     userNotEnoughCake ||
     !ticketsToBuy ||
     new BigNumber(ticketsToBuy).lte(0) ||
